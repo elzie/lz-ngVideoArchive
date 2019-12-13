@@ -1,0 +1,28 @@
+<div class="h-100 d-flex flex-column chat-window">
+    <ng-container *ngIf="!archive else archiveContents">
+        <div class="select-room h-100 w-100 d-flex justify-content-center align-items-center">
+            <div class="select-room-message">
+                Vælg et arkiv i Menu'en til ventstre.
+            </div>
+        </div>
+    </ng-container>
+</div>
+
+<ng-template #archiveContents>
+    <div class="message-wrapper h-100" #scrollWindow>
+        <ng-container *ngIf="contents else noContent"></ng-container>
+
+        <ng-container *ngFor="let content of contents">
+            Video Title: {{ content.videoTitle }} <br />
+        </ng-container>
+    </div>
+
+</ng-template>
+
+<ng-template #noContent>
+    <div class="select-room h-100 w-100 d-flex justify-content-center align-items-center">
+        <div class="select-room-message">
+            Arkivet er tomt.
+        </div>
+    </div>
+</ng-template>
