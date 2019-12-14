@@ -4,7 +4,7 @@ import { User } from '../interfaces/user';
 import { Alert } from './../classes/alert';
 import { AlertType } from './../enums/alert-type.enum';
 import { AlertService } from './alert.service';
-import { Observable } from 'rxjs';
+import { Observable, of, from } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import 'rxjs/add/Observable/of';
@@ -32,7 +32,7 @@ export class AuthService {
         if (user) {
           return this.db.doc<User>(`users/${user.uid}`).valueChanges();
         } else {
-          return Observable.of(null);
+          return of(null);
         }
       });
     this.setCurrentUserSnapshot();
@@ -45,7 +45,7 @@ export class AuthService {
     password: string
   ): Observable<boolean> {
     // Call Firebase Signup function
-    return Observable.fromPromise(
+    return from(
       this.afAuth.auth.createUserWithEmailAndPassword(email, password)
         .then((user) => {
           const userRef: AngularFirestoreDocument<User> = this.db.doc(`users/${user.user.uid}`);
@@ -73,7 +73,7 @@ export class AuthService {
     password: string
   ) {
     // Call Firebase login function
-    return Observable.fromPromise(
+    return from(
       this.afAuth.auth.signInWithEmailAndPassword(email, password)
         .then((user) => true)
         .catch((err) => false)

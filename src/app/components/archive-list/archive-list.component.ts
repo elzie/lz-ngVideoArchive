@@ -7,7 +7,7 @@ import { ArchiveService } from './../../services/archive.service';
 })
 export class ArchiveListComponent implements OnInit {
 
-  constructor(private archiveService: ArchiveService) { }
+  constructor(public archiveService: ArchiveService) { }
 
   ngOnInit() {
   }

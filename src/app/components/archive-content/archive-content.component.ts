@@ -3,8 +3,10 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { ArchiveService } from './../../services/archive.service';
 import { LoadingService } from './../../services/loading.service';
+// import * as firebase from 'firebase/app';
 
 import { Archive } from './../../interfaces/archive';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-archive-content',
@@ -16,11 +18,13 @@ export class ArchiveContentComponent implements OnInit, OnDestroy {
   private subscriptions: Subscription[] = [];
   public archive: Archive;
   public contents: Observable<any[]>;
-  public tempVideoUrl: Observable<any[]>;
+
+
   constructor(
     private route: ActivatedRoute,
     private archiveService: ArchiveService,
-    private loadingService: LoadingService
+    private loadingService: LoadingService,
+    private db: AngularFirestore
 
   ) {
     this.subscriptions.push(
@@ -45,6 +49,15 @@ export class ArchiveContentComponent implements OnInit, OnDestroy {
         this.archiveService.changeSelectedArchive.next(archiveId);
       })
     );
+    // const storage = firebase.app().storage('gs://lz-family-video-archive.appspot.com').ref().listAll();
+    // console.log('storage', storage);
+    // this.subscriptions.push(
+    //   this.route.paramMap.subscribe(params => {
+    //     const archiveId = params.get('archiveId');
+    //     const userRef: AngularFirestoreDocument<any> = this.db.doc(`archives/${archiveId}/contents`);
+    //     userRef.valueChanges().subscribe(contents => this.contents = contents);
+    //   })
+    // );
   }
 
   ngOnDestroy() {

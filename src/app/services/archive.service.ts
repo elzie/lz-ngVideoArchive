@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, of } from 'rxjs';
 import { LoadingService } from './loading.service';
 import { AuthService } from './auth.service';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/observable/of';
 
 @Injectable({
   providedIn: 'root'
@@ -23,13 +24,13 @@ export class ArchiveService {
       if (archiveId) {
         return db.doc(`archives/${archiveId}`).valueChanges();
       }
-      return Observable.of(null);
+      return of(null);
     });
     this.selectedArchiveContents = this.changeSelectedArchive.switchMap(archiveId => {
       if (archiveId) {
         return db.collection(`archives/${archiveId}/contents`).valueChanges();
       }
-      return Observable.of(null);
+      return of(null);
     });
 
     this.archives = db.collection('archives').valueChanges();

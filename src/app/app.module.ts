@@ -19,7 +19,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AuthService } from './services/auth.service';
 import { AlertService } from './services/alert.service';
 import { LoadingService } from './services/loading.service';
-import { ChatroomService } from './services/chatroom.service';
+// import { ChatroomService } from './services/chatroom.service';
 
 // Guards
 import { AuthGuard } from './guards/auth.guard';
@@ -41,6 +41,12 @@ import { environment } from 'src/environments/environment';
 import { ArchiveListComponent } from './components/archive-list/archive-list.component';
 import { ArchiveContentComponent } from './components/archive-content/archive-content.component';
 import { ArchiveService } from './services/archive.service';
+
+// VideOgular
+import { VgCoreModule } from 'videogular2/compiled/core';
+import { VgControlsModule } from 'videogular2/compiled/controls';
+import { VgOverlayPlayModule } from 'videogular2/compiled/overlay-play';
+import { VgBufferingModule } from 'videogular2/compiled/buffering';
 
 @NgModule({
   declarations: [
@@ -65,7 +71,11 @@ import { ArchiveService } from './services/archive.service';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireStorageModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    VgCoreModule,
+    VgControlsModule,
+    VgOverlayPlayModule,
+    VgBufferingModule
   ],
   providers: [
     AlertService,

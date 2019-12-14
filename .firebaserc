@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "lz-chatproject"
+    "default": "lz-chatproject",
+    "lz-family-video-archive": "lz-family-video-archive"
   }
 }

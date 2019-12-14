@@ -1,6 +1,6 @@
-<div class="h-100 d-flex flex-column chatroom-list">
+<div class="h-100 d-flex flex-column chatroom-list" style="padding-top: 50px;">
     <ng-container *ngFor="let archive of archiveService.archives | async">
-        <div class="chatroom-list-item">
+        <div class="chatroom-list-item" style="padding-top: 10px;">
             <a [routerLink]="['/archives', archive.id]">{{ archive.name }}</a>
         </div>
     </ng-container>
