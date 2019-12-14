@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
@@ -7,6 +8,8 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+  @Output() sidenavToggle = new EventEmitter<void>();
+  @Output() closeSidenav = new EventEmitter<void>();
 
   public currentUser: any = null;
 
@@ -17,5 +20,11 @@ export class NavbarComponent implements OnInit {
       this.currentUser = user;
     });
   }
-
+  onToggleSidenav() {
+    this.sidenavToggle.emit();
+    // Now emitting event whenever clicking a menu btn
+  }
+  onClose() {
+    this.closeSidenav.emit();
+  }
 }

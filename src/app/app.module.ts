@@ -8,8 +8,11 @@ import { FormsModule } from '@angular/forms';
 
 // External Modules
 import { AlertModule, BsDropdownModule } from 'ngx-bootstrap';
-import { NgxLoadingModule } from 'ngx-loading';
+import { MaterialModule } from './material.module';
 
+import { NgxLoadingModule } from 'ngx-loading';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
@@ -30,6 +33,9 @@ import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { ArchivesComponent } from './pages/archives/archives.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { HeaderComponent } from './navigation/header/header.component';
+import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
+import { SidenavComponent } from './navigation/sidenav/sidenav.component';
 // import { ChatInputComponent } from './components/chat-input/chat-input.component';
 // import { ChatroomListComponent } from './components/chatroom-list/chatroom-list.component';
 // import { ChatroomTitleBarComponent } from './components/chatroom-title-bar/chatroom-title-bar.component';
@@ -59,6 +65,9 @@ import { VgBufferingModule } from 'videogular2/compiled/buffering';
     EditProfileComponent,
     ArchiveListComponent,
     ArchiveContentComponent,
+    HeaderComponent,
+    SidenavListComponent,
+    SidenavComponent
   ],
   imports: [
     BrowserModule,
@@ -66,12 +75,15 @@ import { VgBufferingModule } from 'videogular2/compiled/buffering';
     AlertModule.forRoot(),
     ReactiveFormsModule,
     FormsModule,
+    BrowserAnimationsModule,
+    FlexLayoutModule,
     NgxLoadingModule,
     BsDropdownModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireAuthModule,
+    MaterialModule,
     VgCoreModule,
     VgControlsModule,
     VgOverlayPlayModule,

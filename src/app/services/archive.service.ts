@@ -22,18 +22,18 @@ export class ArchiveService {
   ) {
     this.selectedArchive = this.changeSelectedArchive.switchMap(archiveId => {
       if (archiveId) {
-        return db.doc(`archives/${archiveId}`).valueChanges();
+        return db.doc(`archive-blom/${archiveId}`).valueChanges();
       }
       return of(null);
     });
     this.selectedArchiveContents = this.changeSelectedArchive.switchMap(archiveId => {
       if (archiveId) {
-        return db.collection(`archives/${archiveId}/contents`).valueChanges();
+        return db.collection(`archive-blom/${archiveId}/contents`).valueChanges();
       }
       return of(null);
     });
 
-    this.archives = db.collection('archives').valueChanges();
+    this.archives = db.collection('archive-blom').valueChanges();
   }
 
   createNewArchive() {

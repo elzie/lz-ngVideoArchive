@@ -4,4 +4,15 @@
         {{ alert.text }}
     </alert>
 </div>
-<router-outlet></router-outlet>
+<mat-sidenav-container>
+    <mat-sidenav-content>
+        <app-header (sidenavToggle)="sidenav.toggle()"></app-header>
+
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+    <mat-sidenav #sidenav>Start
+        <!-- <app-sidenav-list (closeSidenav)="sidenav.close()"></app-sidenav-list> -->
+        <!-- <app-sidenav (closeSidenav)="sidenav.close()"></app-sidenav> -->
+        <!-- PROBLEM: Sidenav has trouble loading a component....  -->
+    </mat-sidenav>
+</mat-sidenav-container>

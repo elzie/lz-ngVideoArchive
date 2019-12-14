@@ -4,6 +4,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { trigger } from '@angular/animations';
 import { LoadingService } from './services/loading.service';
 import { Subscription } from 'rxjs';
+import { AuthService } from './services/auth.service';
 
 
 @Component({
@@ -15,8 +16,13 @@ export class AppComponent implements OnInit, OnDestroy {
   private subscriptions: Subscription[] = [];
   public alerts: Array<Alert> = [];
   public loading: Boolean = false;
+  public currentUser: any = null;
 
-  constructor(private alertService: AlertService, private loadingService: LoadingService) { }
+  constructor(
+    private authService: AuthService,
+    private alertService: AlertService,
+    private loadingService: LoadingService
+  ) { }
 
   ngOnInit() {
     this.subscriptions.push(
@@ -26,6 +32,11 @@ export class AppComponent implements OnInit, OnDestroy {
     this.subscriptions.push(
       this.loadingService.isLoading.subscribe(isLoading => {
         this.loading = isLoading;
+      })
+    );
+    this.subscriptions.push(
+      this.authService.currentUser.subscribe(user => {
+        this.currentUser = user;
       })
     );
   }

@@ -1,0 +1,32 @@
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover,
+a:active {
+  color: lightgray;
+  border-bottom: 3px solid gold;
+
+}
+
+.navigation-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: inline-flex;
+}
+
+.nav-caption {
+  display: inline-block;
+  padding-left: 6px;
+}
+
+a {
+  color: lightgray;
+  margin-left: 2em;
+
+  &.active {
+    border-bottom: 3px solid gold;
+  }
+}

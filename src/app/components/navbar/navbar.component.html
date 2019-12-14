@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-sm navbar-primary bg-primary">
     <div class="container" style="height: 50px; align-items: start !important;">
-        <span class="navbar-brand">LZ :: Video Arkiv</span>
-        <div class="page-links">
+        <span class="navbar-brand">Familien Blom's Video Arkiv</span>
+        <div class="page-links" fxHide.xs>
             <ul class="navbar-nav" *ngIf="currentUser else loggedOut">
                 <li class="nav-item">
                     <a [routerLink]="'/profile/' + currentUser.id" routerLinkActive="active" class="nav-link">Min

@@ -1,7 +1,13 @@
-<div class="h-100 d-flex flex-column chatroom-list" style="padding-top: 50px;">
-    <ng-container *ngFor="let archive of archiveService.archives | async">
-        <div class="chatroom-list-item" style="padding-top: 10px;">
-            <a [routerLink]="['/archives', archive.id]">{{ archive.name }}</a>
-        </div>
-    </ng-container>
+<div class="h-100 d-flex flex-column chatroom-list">
+    <mat-nav-list>
+        <ng-container *ngFor="let archive of archiveService.archives | async">
+            <div class="chatroom-list-item" style="padding-top: 10px;">
+
+                <a mat-list-item [routerLink]="['/archives', archive.id]" (click)="onClose()">
+                    <mat-icon matListIcon>movie</mat-icon>
+                    <h6>{{ archive.name }}</h6>
+                </a>
+            </div>
+        </ng-container>
+    </mat-nav-list>
 </div>

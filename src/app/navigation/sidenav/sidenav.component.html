@@ -1,0 +1,35 @@
+<mat-nav-list *ngIf="currentUser else loggedOut">
+    <a mat-list-item [routerLink]="'/profile/' + currentUser.id" (click)="onClose()" *ngIf="currentUser else loggedOut">
+        <mat-icon>face</mat-icon>
+        <span class="nav-caption">Min Profil</span>
+    </a>
+    <hr />
+    <a mat-list-item routerLink="/archives" (click)="onClose()" *ngIf="currentUser else loggedOut">
+        <mat-icon matListIcon>arrow_downward</mat-icon>
+        <span class="nav-caption">
+            <h4 style="padding-top: 7px;">Arkiver</h4>
+        </span>
+    </a>
+
+    <app-archive-list></app-archive-list>
+
+    <hr />
+    <!-- <a mat-list-item routerLink="/" *ngIf="currentUser else loggedOut">
+      <mat-icon>movie</mat-icon>
+      <mat-icon>folder</mat-icon>
+    </a> -->
+    <mat-list-item>
+        <button mat-icon-button (click)="onLogout()" *ngIf="true else loggedOut">
+            <mat-icon>eject</mat-icon>
+            <span class="nav-caption">Log Ud</span>
+        </button>
+    </mat-list-item>
+</mat-nav-list>
+
+<ng-template #loggedOut>
+    <mat-nav-list>
+        <a mat-list-item routerLink="/login" (click)="onClose()" routerLinkActive="active" class="nav-link">Log ind</a>
+        <a mat-list-item routerLink="/signup" (click)="onClose()" routerLinkActive="active" class="nav-link">Opret
+            Profil</a>
+    </mat-nav-list>
+</ng-template>

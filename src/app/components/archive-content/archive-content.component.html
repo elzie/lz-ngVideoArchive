@@ -9,18 +9,18 @@
 </div>
 
 <ng-template #archiveContents>
-    <div class="message-wrapper h-100" #scrollWindow>
+    <div class="message-wrapper h-100">
+
         <ng-container *ngIf="contents else noContent"></ng-container>
 
         <ng-container *ngFor="let content of contents">
-            Title: {{ content.videoTitle }} <br /><br />
-            Beskrivelse: {{ content.videoDescription }}<br /><br />
-            <video width="320" height="240" controls>
+
+            <!-- <video width="320" height="240" controls>
                 <source [src]="content?.videoUrl" type="video/mp4">
                 Your browser does not support the video tag.
-            </video><br />
+            </video><br /> -->
             <hr />
-            <!-- <vg-player>
+            <vg-player>
                 <vg-overlay-play></vg-overlay-play>
                 <vg-buffering></vg-buffering>
                 <vg-scrub-bar>
@@ -47,7 +47,10 @@
                     crossorigin>
                     <source [src]="content?.videoUrl" type="video/mp4">
                 </video>
-            </vg-player> -->
+            </vg-player>
+            Title: {{ content.videoTitle }} <br /><br />
+            Beskrivelse: {{ content.videoDescription }}<br /><br />
+
         </ng-container>
     </div>
 
