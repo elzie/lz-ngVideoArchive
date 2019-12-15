@@ -1,9 +1,26 @@
+mat-card {
+  width: 445px;
+  margin: 10px;
+}
+
+video {
+  width: 415px;
+  height: 340px;
+}
+
 vg-player {
   font-family: 'videogular';
   position: relative;
   display: flex;
-  width: 100%;
+  width: 435px;
   height: 350px;
   overflow: hidden;
   background-color: rgba($color: #000000, $alpha: 0.8);
 }
+
+.timeperiod {
+  font-size: 10px;
+
+}
+
+.info-icon {}

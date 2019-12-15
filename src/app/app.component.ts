@@ -37,6 +37,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.subscriptions.push(
       this.authService.currentUser.subscribe(user => {
         this.currentUser = user;
+        console.log('AppComponent-CurrentUser: ', this.currentUser);
       })
     );
   }

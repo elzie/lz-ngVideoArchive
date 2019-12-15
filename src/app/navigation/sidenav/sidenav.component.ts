@@ -30,5 +30,8 @@ export class SidenavComponent implements OnInit {
   onClose() {
     this.closeSidenav.emit();
   }
-
+  onLogout() {
+    this.onClose();
+    this.authService.logout();
+  }
 }
