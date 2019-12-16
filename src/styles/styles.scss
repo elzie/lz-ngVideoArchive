@@ -3,8 +3,13 @@
 @import '../../node_modules/bootstrap/scss/bootstrap';
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
+html {
+  height: 100%;
+}
+
 body {
-  color: $secondary;
+  background-color: $primary;
+  height: 100%;
 }
 
 .container-wrapper {
@@ -25,4 +30,18 @@ button {
       box-shadow: none;
     }
   }
+}
+
+.mat-drawer-container {
+  background-color: white;
+  height: 99%;
+}
+
+.mat-card {
+  background-color: rgba($secondary, $alpha: 0.2);
+}
+
+.mat-card-footer {
+  padding: 10px;
+  opacity: 50%;
 }

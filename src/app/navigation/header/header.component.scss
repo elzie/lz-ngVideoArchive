@@ -3,6 +3,10 @@ a {
   color: white;
 }
 
+mat-toolbar {
+  background-color: #677F45;
+}
+
 a:hover,
 a:active {
   color: lightgray;
@@ -24,7 +28,7 @@ a:active {
 
 a {
   color: lightgray;
-  margin-left: 2em;
+  // margin-left: 2em;
 
   &.active {
     border-bottom: 3px solid gold;

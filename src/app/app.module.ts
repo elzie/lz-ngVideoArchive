@@ -20,6 +20,8 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 
 // Services
 import { AuthService } from './services/auth.service';
+import { ArchiveService } from './services/archive.service';
+
 import { AlertService } from './services/alert.service';
 import { LoadingService } from './services/loading.service';
 // import { ChatroomService } from './services/chatroom.service';
@@ -46,7 +48,6 @@ import { EditProfileComponent } from './pages/edit-profile/edit-profile.componen
 import { environment } from 'src/environments/environment';
 import { ArchiveListComponent } from './components/archive-list/archive-list.component';
 import { ArchiveContentComponent } from './components/archive-content/archive-content.component';
-import { ArchiveService } from './services/archive.service';
 
 // VideOgular
 import { VgCoreModule } from 'videogular2/compiled/core';
@@ -90,12 +91,12 @@ import { VgBufferingModule } from 'videogular2/compiled/buffering';
     VgBufferingModule
   ],
   providers: [
-    AlertService,
-    LoadingService,
     AuthService,
     AuthGuard,
+    ArchiveService,
+    AlertService,
+    LoadingService,
     DatePipe,
-    ArchiveService
   ],
   bootstrap: [AppComponent]
 })

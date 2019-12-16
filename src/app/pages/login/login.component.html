@@ -1,7 +1,7 @@
 <!-- <app-navbar></app-navbar> -->
 <div class="container-wrapper d-flex justify-content-center align-items-center">
     <div class="form-wrapper text-center">
-        <h2 class="text-center">Login</h2>
+        <h2 class="text-center">Log Ind</h2>
         <form [formGroup]="loginForm" (submit)="submit()" novalidate>
             <div class="form-group">
                 <input type="email" class="form-control" id="email-input" placeholder="Enter Email Adress"
@@ -11,8 +11,8 @@
                 <input type="password" class="form-control" id="password-input" placeholder="Enter Password"
                     formControlName="password">
             </div>
-            <button type="submit" class="btn btn-primary">Do the login-thing!</button>
+            <button type="submit" class="btn btn-primary">Log Ind!</button>
         </form>
-        <small><a routerLink="/signup">Create an Account?</a></small>
+        <small><a routerLink="/signup">Vil du oprette en konto?</a></small>
     </div>
 </div>

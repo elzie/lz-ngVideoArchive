@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
+// import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-archives',
@@ -8,13 +8,13 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class ArchivesComponent implements OnInit {
 
-  constructor(public db: AngularFirestore) { }
+  constructor() { }
 
   ngOnInit() {
-    this.db.collection('archives').valueChanges().subscribe(res => {
-      console.log(res);
-      // valueChanges Logs out values only - no metadata
-    });
+    // this.db.collection('archives').valueChanges().subscribe(res => {
+    //   console.log(res);
+    //   // valueChanges Logs out values only - no metadata
+    // });
   }
 
 }

@@ -1,9 +1,10 @@
 import { ActivatedRoute } from '@angular/router';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Optional } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { ArchiveService } from './../../services/archive.service';
 import { LoadingService } from './../../services/loading.service';
 // import * as firebase from 'firebase/app';
+import { AppComponent } from './../../app.component';
 
 import { Archive } from './../../interfaces/archive';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
@@ -24,20 +25,21 @@ export class ArchiveContentComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private archiveService: ArchiveService,
     private loadingService: LoadingService,
-    private db: AngularFirestore
+    private db: AngularFirestore,
+    @Optional() public parent: AppComponent
 
   ) {
     this.subscriptions.push(
       this.archiveService.selectedArchive.subscribe(archive => {
         this.archive = archive;
-        console.log('Current Archive: ', archive);
+        // console.log('Current Archive: ', archive);
         // this.loadingService.isLoading.next(false);
       })
     );
     this.subscriptions.push(
       this.archiveService.selectedArchiveContents.subscribe(contents => {
         this.contents = contents;
-        console.log('Contents: ', contents);
+        // console.log('Contents: ', contents);
       })
     );
   }
@@ -57,7 +59,9 @@ export class ArchiveContentComponent implements OnInit, OnDestroy {
     //     const userRef: AngularFirestoreDocument<any> = this.db.doc(`archives/${archiveId}/contents`);
     //     userRef.valueChanges().subscribe(contents => this.contents = contents);
     //   })
-    // );
+    // ); gs://lz-family-video-archive.appspot.com/archive-blom/-  vhs_baand/familien_blom
+    //                                                         3kOMRzUv48g4SxnCkeAN
+    this.archiveService.getArchiveContents('vhs_baand/familien_blom');
   }
 
   ngOnDestroy() {

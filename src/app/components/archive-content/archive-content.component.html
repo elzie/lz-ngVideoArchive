@@ -1,8 +1,13 @@
 <div class="h-100 d-flex flex-column chat-window">
     <ng-container *ngIf="!archive else archiveContents">
-        <div class="select-room h-100 w-100 d-flex justify-content-center align-items-center">
+        <div class="select-room h-100 w-100 d-flex justify-content-start align-items-top">
             <div class="select-room-message">
-                Vælg et arkiv i Menu'en til ventstre.
+                <mat-card>
+                    <mat-card-title>Glædelig Jul Mor og Far ♥</mat-card-title>
+                    <mat-card-content>Her er min lille julegave til jer I år, jeg håber I får glæde af den - hvorend I
+                        befinder jer i verden! <br><br> Kærlig Hilsen Djan</mat-card-content>
+                    <mat-card-footer>December 2019</mat-card-footer>
+                </mat-card>
             </div>
         </div>
     </ng-container>
@@ -11,6 +16,7 @@
 <ng-template #archiveContents>
     <div class="message-wrapper h-100">
         <br />
+        <h1>{{ parent.archive.name }}</h1>
         <ng-container *ngIf="contents else noContent"></ng-container>
 
         <div class="row" style="display: flex; flex-wrap: wrap;">
@@ -21,7 +27,7 @@
                 Your browser does not support the video tag.
             </video><br /> -->
                 <mat-card>
-                    <mat-card-title>{{ content.videoTitle }}</mat-card-title>
+                    <mat-card-title>{{ content.videoYear }}: {{ content.videoTitle }}</mat-card-title>
                     <hr />
                     <video controls>
                         <source [src]="content?.videoUrl" type="video/mp4">
@@ -56,10 +62,14 @@
                     </video>
                 </vg-player> -->
                     <!-- Title: {{ content.videoTitle }} <br /><br /> -->
-                    <mat-icon class="info-icon">info</mat-icon> {{ content.videoDescription }}<br />
+                    <div class="info-box">
+                        <mat-icon class="info-icon">info</mat-icon>
+                        <div class="info-text">{{ content.videoDescription }}</div><br />
+                    </div>
                 </mat-card>
                 <br />
             </ng-container>
+
         </div>
     </div>
 

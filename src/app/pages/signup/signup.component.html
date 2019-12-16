@@ -1,7 +1,7 @@
 <!-- <app-navbar></app-navbar> -->
 <div class="container-wrapper d-flex justify-content-center align-items-center">
     <div class="form-wrapper text-center">
-        <h2 class="text-center">Create an Account</h2>
+        <h2 class="text-center">Opret Konto</h2>
         <form [formGroup]="signupForm" (submit)="submit()" novalidate>
             <div class="name-group d-flex">
                 <div class="form-group first-name">
@@ -26,8 +26,8 @@
                 <input type="password" class="form-control" id="password-input" placeholder="Enter Password"
                     formControlName="password">
             </div>
-            <button type="submit" class="btn btn-primary">Do the Sign Up-thing!</button>
+            <button type="submit" class="btn btn-primary">Opret!</button>
         </form>
-        <small><a routerLink="/login">Allready a member?</a></small>
+        <small><a routerLink="/login">Har du allerede et login?</a></small>
     </div>
 </div>
